@@ -10,6 +10,10 @@
 Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://opensource.org/license/apache-2-0)
 [![pkgdown](https://img.shields.io/badge/pkgdown-docs-blue.svg)](https://www.indraneelchakraborty.com/clintrialx/)
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fineelhere%2Fclintrialx&label=Visitors&labelColor=%23f47373&countColor=%2337d67a&style=flat&labelStyle=upper)](https://github.com/ineelhere/clintrialx)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/clintrialx)](https://CRAN.R-project.org/package=clintrialx)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/clintrialx)](https://CRAN.R-project.org/package=clintrialx)
 
 [![Data Sources:
 ClinicalTrials.gov](https://img.shields.io/badge/Data_Sources-ClinicalTrials.gov-blue)](https://clinicaltrials.gov/data-api/api)
@@ -29,8 +33,17 @@ available registries. Currently, it supports querying the
 
 ## Installation
 
+Install the package from
+[CRAN](https://CRAN.R-project.org/package=clintrialx) with:
+
+``` r
+install.packages("clintrialx")
+```
+
 You can install this package from
 [GitHub](https://github.com/ineelhere/clintrialx) with:
+
+*you’ll need the `devtools` package for this*
 
 ``` r
 # install.packages("devtools")
@@ -110,20 +123,18 @@ df <- ctg_bulk_fetch(location="india")
 
 #### Run Custom Queries
 
-``` r
-# Set environment variables for database credentials in .Renviron and load it
-# readRenviron(".Renviron")
+    # Set environment variables for database credentials in .Renviron and load it
+    # readRenviron(".Renviron")
 
-# Connect to the database
-con <- aact_connection(Sys.getenv('user'), Sys.getenv('password'))
+    # Connect to the database
+    con <- aact_connection(Sys.getenv('user'), Sys.getenv('password'))
 
-# Run a custom query
-query <- "SELECT nct_id, source, enrollment, overall_status FROM studies LIMIT 5;"
-results <- aact_custom_query(con, query)
+    # Run a custom query
+    query <- "SELECT nct_id, source, enrollment, overall_status FROM studies LIMIT 5;"
+    results <- aact_custom_query(con, query)
 
-# Print the results
-print(results)
-```
+    # Print the results
+    print(results)
 
 ## Trial Data HTML Reports
 
